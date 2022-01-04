@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+{% if ticker %}
+	{{ ticker }}
+{% endif %}
+
+{% if api %}
+	{% if api == "Error..." %}
+		There was a problem loading this search item,
+		please try again...
+	{% else %}
+		
+		<h1>{{ api.symbol }}</h1>
+		<h3>{{ api.companyName }}</h3>
+		Exchange: {{api.primaryExchange}}<br>
+		Real Time Price: {{ api.iexRealtimePrice }}<br>
+		Close Price: {{ api.close}}<br>
+		CHG%: {{ api.changePercent }}<br>
+		Market Cap: {{ api.marketCap }}<br>
+		Currency: {{ api.currency }}<br>
+
+	
+	{% endif %}
+{% endif %}
+
+
+{% endblock %}
